@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   FiMail,
   FiGithub,
@@ -88,11 +89,27 @@ export default function Contact() {
       return;
     }
     setLoading(true);
-    // Simulate sending — replace with emailjs or your preferred service
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setLoading(false);
-    setSent(true);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    try {
+      await emailjs.send(
+        "service_ga5ovwu",
+        "template_92zt6wr",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject || "Portfolio Contact",
+          message: form.message,
+          to_email: "olamilekankilani03@gmail.com",
+        },
+        "dPQwyEiLL_d5JcVK3",
+      );
+      setSent(true);
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      setError("Failed to send message, please try again!!");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
