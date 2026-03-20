@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -40,6 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="bg-[#0a0a0a] text-white antialiased">
+        <NextTopLoader
+          color="#3b82f6"
+          height={3}
+          showSpinner={false}
+          shadow="0 0 10px #3b82f6"
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />
