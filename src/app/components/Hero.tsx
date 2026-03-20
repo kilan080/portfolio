@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import {
   FiGithub,
   FiLinkedin,
@@ -9,6 +10,7 @@ import {
   FiArrowRight,
   FiDownload,
 } from "react-icons/fi";
+import { start } from "repl";
 
 const socials = [
   {
@@ -29,8 +31,52 @@ const socials = [
 ];
 
 export default function Hero() {
+  function CountUp({ end, suffix = "" }: { end: number; suffix?: string }) {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLSpanElement>(null);
+    const [started, setStarted] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !started) {
+            setStarted(true);
+          }
+        },
+        { threshold: 0.5 },
+      );
+      if (ref.current) observer.observe(ref.current);
+      return () => observer.disconnect();
+    }, [started]);
+
+    useEffect(() => {
+      if (!started) return;
+      let start = 0;
+      const duration = 1500;
+      const increment = end / (duration / 16);
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }, [started, end]);
+
+    return (
+      <span ref={ref}>
+        {count}
+        {suffix}
+      </span>
+    );
+  }
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20">
+    <section className="min-h-screen tflex items-center justify-center relative overflow-hidden px-6 pt-20">
       {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
@@ -135,13 +181,15 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-8 mt-16 pt-8 border-t border-white/5 w-full"
         >
           {[
-            { value: "18+", label: "Months Experience" },
-            { value: "10+", label: "Projects Built" },
-            { value: "5+", label: "Tech Stacks" },
-            { value: "100%", label: "Passion for Code" },
+            { end: 20, suffix: "+", label: "Months Experience" },
+            { end: 15, suffix: "+", label: "Projects Built" },
+            { end: 7, suffix: "+", label: "Tech Stacks" },
+            { end: 100, suffix: "%", label: "Passion for Code" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-2xl font-bold text-white">{stat.value}</p>
+              <p className="text-2xl font-bold text-white">
+                <CountUp end={stat.end} suffix={stat.suffix} />
+              </p>
               <p className="text-gray-500 text-sm mt-1">{stat.label}</p>
             </div>
           ))}
