@@ -52,7 +52,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-16 text-center lg:text-center"
         >
           <span className="text-blue-400 text-sm font-medium tracking-widest uppercase">
             Portfolio
@@ -60,7 +60,7 @@ export default function Projects() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
             My Projects
           </h1>
-          <p className="text-gray-400 max-w-xl text-lg">
+          <p className="flex items-center justify-center text-center text-gray-400 max-w-xl text-lg mx-auto">
             A collection of real-world projects I&apos;ve built — from
             e-commerce platforms to movie apps and admin dashboards.
           </p>

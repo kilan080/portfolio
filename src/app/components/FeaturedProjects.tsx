@@ -60,8 +60,8 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.5 }}
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12"
         >
-          <div>
-            <span className="text-blue-400 text-sm font-medium tracking-widest uppercase">
+          <div className="text-center">
+            <span className="flex items-center justify-center text-center text-blue-400 text-sm font-medium tracking-widest uppercase">
               My Work
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">

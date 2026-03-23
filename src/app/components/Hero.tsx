@@ -187,7 +187,7 @@ export default function Hero() {
             { end: 100, suffix: "%", label: "Passion for Code" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-5xl font-bold text-white">
                 <CountUp end={stat.end} suffix={stat.suffix} />
               </p>
               <p className="text-gray-500 text-sm mt-1">{stat.label}</p>
