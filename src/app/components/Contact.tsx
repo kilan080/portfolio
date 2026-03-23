@@ -247,7 +247,7 @@ export default function Contact() {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="John Doe"
+                        placeholder=""
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-blue-500/50 transition-colors"
                       />
                     </div>
@@ -260,7 +260,7 @@ export default function Contact() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder=""
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-blue-500/50 transition-colors"
                       />
                     </div>

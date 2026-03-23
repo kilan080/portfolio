@@ -172,9 +172,9 @@ export default function Skills() {
                     </div>
 
                     {/* Level */}
-                    <span className="text-xs text-gray-500 text-right">
+                    {/* <span className="text-xs text-gray-500 text-right">
                       {skill.level}%
-                    </span>
+                    </span> */}
                   </motion.div>
                 ))}
               </div>
