@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FiGithub, FiExternalLink, FiClock } from "react-icons/fi";
 
 const projects = [
@@ -41,6 +40,17 @@ const projects = [
     color: "from-green-500/20 to-emerald-500/20",
     border: "border-green-500/20",
   },
+  {
+    title: "Dev Tracker",
+    description: "It is a platform for developers for logging your daily coding progress, achievements, and tracking your learning journey.",
+    tags: ["Next.js", "NeonDB", "Clerk", "TailwindCSS", "React"],
+    live: "https://devtrackr-alpha.vercel.app/",
+    github: "https://github.com/kilan080/devtrackr",
+    status: "live",
+    featured: true,
+    color: "from-green-500/20 to-emerald-500/20",
+    border: "border-green-500/20",
+  }
 ];
 
 export default function Projects() {
@@ -66,7 +76,6 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div

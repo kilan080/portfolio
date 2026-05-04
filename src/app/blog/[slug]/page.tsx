@@ -224,6 +224,88 @@ Making the horizontal scroll work properly on both mobile and desktop took some 
 This project was my first big project, so i was getting instructions on what part to build and what not, a great way to practice working with external APIs and state management at scale. The TMDB API is well documented and perfect for building portfolio projects. Check out the live app at [tdmb-tau.vercel.app](https://tdmb-tau.vercel.app) and the code on my [GitHub](https://github.com/kilan080).
   `,
   },
+ {
+  slug: "building-devtrackr-from-idea-to-saas",
+  title: "Building DevTrackr: From Idea to a Real SaaS Product",
+  date: "Coming Soon",
+  readTime: "12 min read",
+  tag: "SaaS",
+  color: "text-blue-400",
+  border: "border-blue-500/20",
+  bg: "bg-blue-500/5",
+  content: `
+## Overview
+
+DevTrackr started as a simple idea: I wanted a better way to track my growth as a developer — not just finished projects, but the actual journey behind them. Most portfolios only show the end result, but they don’t tell the story.
+
+So I decided to build something that does both.
+
+DevTrackr is a SaaS platform that allows developers to track their progress, visualize consistency, and showcase their journey in a more meaningful way. Think of it as a mix between a developer portfolio and a productivity tracker, with a GitHub-inspired contribution system.
+
+## The Idea Behind It
+
+I noticed that a lot of developers (including myself) struggle with consistency and visibility. You build projects, learn new tools, but over time it becomes hard to clearly show:
+
+- What you’ve been working on daily  
+- How consistent you are  
+- How your skills are evolving  
+
+DevTrackr solves this by turning your daily effort into something visual and trackable.
+
+## Key Features
+
+- A GitHub-style contribution grid to track daily coding activity  
+- Developer-focused dashboard to log progress and milestones  
+- Clean, responsive UI designed for showcasing growth  
+- Authentication system for personalized tracking  
+- Scalable structure to support future SaaS features  
+
+## Tech Stack
+
+Building DevTrackr pushed me to work with tools that are actually used in production-level apps:
+
+- **Next.js (App Router)** for routing, layouts, and server/client logic  
+- **Clerk** for authentication and user management  
+- **Neon (PostgreSQL)** for a scalable, serverless database  
+- **REST APIs** for handling dynamic data and integrations  
+- **Redux Toolkit** (where necessary) for managing shared state  
+- **Modern CSS / UI patterns** for building a clean and responsive interface  
+
+## What I Learned
+
+This project forced me out of “tutorial mode” and into actually thinking like a product builder.
+
+- Structuring a real SaaS application from scratch  
+- Handling authentication and protected routes properly  
+- Designing a database schema for user-driven data  
+- Managing async data and optimizing performance in Next.js  
+- Building reusable UI components and maintaining consistency  
+- Thinking beyond code — focusing on user experience and product value  
+
+## Challenges
+
+One of the biggest challenges was not the code itself, but the decisions behind it.
+
+- Deciding what should be global state vs local state  
+- Avoiding overengineering while still planning for scalability  
+- Handling data fetching efficiently without slowing down the UI  
+- Keeping the UI simple while still making it feel like a product  
+
+There were also moments where things broke in ways that weren’t obvious, especially around routing and state persistence — but fixing those gave me a much deeper understanding of how the framework actually works.
+
+## Conclusion
+
+DevTrackr is more than just a project for me — it’s my transition from building small apps to thinking in terms of products.
+
+It represents consistency, learning, and the process of improving over time.
+
+And the best part is, this is just version one.
+
+I’m planning to keep improving it, adding more features, and possibly turning it into something other developers can actually use to track their own journeys.
+
+If you want to follow along or check out the project, I’ll be sharing updates and the live version soon.
+  `,
+} 
 ];
 
 export async function generateMetadata({
