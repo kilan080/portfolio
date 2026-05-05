@@ -46,6 +46,17 @@ const featured = [
     border: "border-green-500/20",
     number: "03",
   },
+  {
+    title: "DevTracker",
+    description: "A saas product that helps developers track their coding progress and stay motivated.",
+    tags: ["Next.js", "Clerk", "NeonDB", "TailwindCss", "Typescript"],
+    live: "https://devtrackr-alpha.vercel.app/",
+    github: "https://github.com/kilan080/DevTracker",
+    status: "live",
+    color: "from-blue-500/10 to-cyan-500/10",
+    border: "border-blue-500/20",
+    number: "04",
+  }
 ];
 
 export default function FeaturedProjects() {
