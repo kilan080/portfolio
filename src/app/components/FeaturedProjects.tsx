@@ -23,6 +23,17 @@ const featured = [
     number: "01",
   },
   {
+    title: "AI Travel Planner",
+    description: "An AI travel planner to help plan your travels, give tips about how to spend and also locations of where you can visit with an integrated chatbot.",
+    tags: ["Next.js", "TypeScript", "Material UI"],
+    live: "https://ai-travel-planner-kol.vercel.app",
+    github: "https://github.com/kilan080/ai-travel-planner",
+    status: "live",
+    color: "from-green-500/10 to-emerald-500/10",
+    border: "border-green-500/20",
+    number: "02",
+  },
+  {
     title: "TMDB Movie App",
     description:
       "A movie discovery app with real-time search, Redux Toolkit state management, horizontal scrolling layouts and in-app trailer playback.",
@@ -32,7 +43,7 @@ const featured = [
     status: "live",
     color: "from-purple-500/10 to-pink-500/10",
     border: "border-purple-500/20",
-    number: "02",
+    number: "03",
   },
   {
     title: "Startup Admin Dashboard",
@@ -44,7 +55,7 @@ const featured = [
     status: "coming-soon",
     color: "from-green-500/10 to-emerald-500/10",
     border: "border-green-500/20",
-    number: "03",
+    number: "04",
   },
   {
     title: "DevTracker",
@@ -55,7 +66,7 @@ const featured = [
     status: "live",
     color: "from-blue-500/10 to-cyan-500/10",
     border: "border-blue-500/20",
-    number: "04",
+    number: "05",
   }
 ];
 

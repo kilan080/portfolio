@@ -50,6 +50,28 @@ const projects = [
     featured: true,
     color: "from-green-500/20 to-emerald-500/20",
     border: "border-green-500/20",
+  },
+  {
+    title: "TobiBro Admin",
+    description: "an admin dashboard for TobiBro to manage its students and also tutor for the development and progress of students",
+    tags: ["Next.js", "TypeScript", "Material UI"],
+    live: "#",
+    github: "https://github.com/kilan080",
+    status: "coming-soon",
+    featured: true,
+    color: "from-purple-500/20 to-pink-500/20",
+    border: "border-green-500/20",
+  },
+  {
+    title: "AI travel planner",
+    description: "An AI travel planner to help plan your travels, give tips about how to spend and also locations of where you can visit with an integrated chatbot. Built with Next.js and Firebase.",
+    tags: ["Next.js", "Firebase", "TypeScript", "Tailwindcss"],
+    live: " https://ai-travel-planner-kol.vercel.app",
+    github: "https://github.com/kilan080/ai-travel-planner",
+    status: "live",
+    featured: true,
+    color: "from-blue-500/20 to-cyan-500/20",
+    border: "border-blue-500/20",
   }
 ];
 
