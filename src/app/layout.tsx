@@ -24,7 +24,12 @@ export const metadata: Metadata = {
     "React",
     "Nigeria",
   ],
-  metadataBase: new URL("https://yourportfolio.vercel.app"),
+  metadataBase: new URL("https://kilani-portfolio.vercel.app"),
+  icons: {
+    icon: "/devkilan-logo.svg",
+    shortcut: "/devkilan-logo.svg",
+    apple: "/devkilan-logo.svg",
+  },
   openGraph: {
     title: "Olamilekan Kilani | Frontend Developer",
     description:
