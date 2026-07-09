@@ -36,6 +36,9 @@ export const metadata: Metadata = {
       "Frontend developer building responsive, user-friendly applications.",
     type: "website",
   },
+  verification: {
+    google: "quYV9S-Iy_XPqIDI9oPU1__mIWNx0QLFB_ewcexg-lw",
+  },
 };
 
 export default function RootLayout({
