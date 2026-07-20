@@ -48,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={geist.variable}>
-      <body className="bg-[#0a0a0a] text-white antialiased">
+      <body className="bg-[#F9F6F0] text-[#111111] antialiased selection:bg-[#111111] selection:text-[#F9F6F0]">
         <NextTopLoader
           color="#3b82f6"
           height={3}

@@ -12,9 +12,6 @@ const projects = [
     live: "https://footiesbyzain.vercel.app",
     github: "https://github.com/kilan080",
     status: "live",
-    featured: true,
-    color: "from-blue-500/20 to-cyan-500/20",
-    border: "border-blue-500/20",
   },
   {
     title: "TMDB Movie App",
@@ -24,9 +21,6 @@ const projects = [
     live: "https://tdmb-tau.vercel.app",
     github: "https://github.com/kilan080",
     status: "live",
-    featured: true,
-    color: "from-purple-500/20 to-pink-500/20",
-    border: "border-purple-500/20",
   },
   {
     title: "Startup Admin Dashboard",
@@ -36,9 +30,6 @@ const projects = [
     live: "#",
     github: "https://github.com/kilan080",
     status: "coming-soon",
-    featured: true,
-    color: "from-green-500/20 to-emerald-500/20",
-    border: "border-green-500/20",
   },
   {
     title: "Dev Tracker",
@@ -48,21 +39,15 @@ const projects = [
     live: "https://devtrackr-alpha.vercel.app/",
     github: "https://github.com/kilan080/devtrackr",
     status: "live",
-    featured: true,
-    color: "from-green-500/20 to-emerald-500/20",
-    border: "border-green-500/20",
   },
   {
     title: "TobiBro Admin",
     description:
-      "an admin dashboard for TobiBro to manage its students and also tutor for the development and progress of students",
+      "An admin dashboard for TobiBro to manage its students and also tutor for the development and progress of students.",
     tags: ["Next.js", "TypeScript", "Material UI"],
     live: "#",
     github: "https://github.com/kilan080",
     status: "coming-soon",
-    featured: true,
-    color: "from-purple-500/20 to-pink-500/20",
-    border: "border-green-500/20",
   },
   {
     title: "AI travel planner",
@@ -72,9 +57,6 @@ const projects = [
     live: " https://ai-travel-planner-kol.vercel.app",
     github: "https://github.com/kilan080/ai-travel-planner",
     status: "live",
-    featured: true,
-    color: "from-blue-500/20 to-cyan-500/20",
-    border: "border-blue-500/20",
   },
   {
     title: "Grade Calculator",
@@ -84,9 +66,6 @@ const projects = [
     live: "https://www.npmjs.com/package/@kilan080/grade-calculator",
     github: "https://github.com/kilan080/grade-calculator",
     status: "live",
-    featured: true,
-    color: "from-purple-500/20 to-pink-500/20",
-    border: "border-green-500/20",
   },
   {
     title: "A School Result Management Portal",
@@ -96,97 +75,101 @@ const projects = [
     live: "https://portal-two-xi-52.vercel.app",
     github: "https://github.com/kilan080",
     status: "live",
-    featured: true,
-    color: "from-green-500/20 to-emerald-500/20",
-    border: "border-green-500/20",
   },
 ];
 
 export default function Projects() {
   return (
-    <section className="min-h-screen pt-28 pb-20 px-6">
+    <section
+      id="projects"
+      className="min-h-screen pt-28 pb-20 px-6 border-b brutalist-border bg-[#F9F6F0]"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center lg:text-center"
+          className="mb-16 md:text-center text-left"
         >
-          <span className="text-blue-400 text-sm font-medium tracking-widest uppercase">
+          <span className="text-[#a39f97] text-xs font-mono uppercase tracking-widest border border-[#111111] px-2 py-1 bg-[#F9F6F0] brutalist-shadow">
             Portfolio
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-[#111111] mt-6 mb-4 tracking-tighter uppercase">
             My Projects
-          </h1>
-          <p className="flex items-center justify-center text-center text-gray-400 max-w-xl text-lg mx-auto">
-            A collection of real-world projects I&apos;ve built — from
-            e-commerce platforms to movie apps and admin dashboards.
+          </h2>
+          <p className="md:flex md:items-center md:justify-center md:text-center text-[#111111] max-w-xl text-sm font-mono mx-auto">
+            A COLLECTION OF REAL-WORLD PROJECTS I&apos;VE BUILT FROM E-COMMERCE
+            PLATFORMS TO MOVIE APPS AND ADMIN DASHBOARDS.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} backdrop-blur-sm p-6 flex flex-col gap-4 hover:scale-[1.02] transition-transform`}
+              className="relative border border-[#111111] bg-[#F9F6F0] p-6 flex flex-col gap-6 transition-transform hover:-translate-y-2 brutalist-shadow"
             >
               {/* Status badge */}
               <div className="flex items-center justify-between">
                 {project.status === "live" ? (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-[#111111] text-[#111111] text-[10px] uppercase tracking-widest font-mono">
+                    <span className="w-1.5 h-1.5 bg-[#111111] animate-pulse" />
                     Live
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-[#111111] text-[#111111] text-[10px] uppercase tracking-widest font-mono">
                     <FiClock size={10} />
                     Coming Soon
                   </span>
                 )}
 
                 {/* Links */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   {project.status !== "coming-soon" && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors"
+                      className="text-[#111111] hover:text-[#a39f97] transition-colors"
                       aria-label="Live site"
                     >
-                      <FiExternalLink size={16} />
+                      <FiExternalLink size={18} />
                     </a>
                   )}
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-[#111111] hover:text-[#a39f97] transition-colors"
                     aria-label="GitHub"
                   >
-                    <FiGithub size={16} />
+                    <FiGithub size={18} />
                   </a>
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-white">{project.title}</h3>
+              <h3 className="text-xl font-black text-[#111111] uppercase tracking-tight">
+                {project.title}
+              </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm leading-relaxed flex-1">
+              <p className="text-[#111111] text-xs font-mono leading-relaxed flex-1">
                 {project.description}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto border-[#111111] pt-4">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300 text-xs"
+                    className="px-2 py-1 border border-[#111111] text-[#111111] text-[10px] font-mono tracking-widest uppercase bg-[#F9F6F0]"
                   >
                     {tag}
                   </span>
@@ -199,18 +182,21 @@ export default function Projects() {
         {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 text-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-24 text-center"
         >
-          <p className="text-gray-500 mb-4">Want to see more of my work?</p>
+          <p className="text-[#111111] font-mono text-xs uppercase tracking-widest mb-6">
+            Want to see more of my work?
+          </p>
           <a
             href="https://github.com/kilan080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/30 text-gray-300 hover:text-white font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-[#111111] bg-[#111111] text-[#F9F6F0] font-mono text-xs uppercase tracking-widest transition-transform hover:-translate-y-1 brutalist-shadow"
           >
-            <FiGithub size={18} />
+            <FiGithub size={16} />
             View GitHub Profile
           </a>
         </motion.div>

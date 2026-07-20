@@ -7,10 +7,10 @@ import { FiMenu, FiX, FiCode } from "react-icons/fi";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Skills", href: "/skills" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -28,17 +28,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5"
-          : "bg-transparent"
+          ? "bg-[#F9F6F0]/90 backdrop-blur-md border-b brutalist-border"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center group-hover:bg-blue-400 transition-colors">
-            <FiCode className="text-white text-sm" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 bg-[#111111] flex items-center justify-center transition-transform group-hover:-translate-y-1 brutalist-border brutalist-shadow">
+            <FiCode className="text-[#F9F6F0] text-sm" />
           </div>
-          <span className="font-bold text-white tracking-tight">devKilan</span>
+          <span className="font-black text-[#111111] tracking-tighter uppercase text-sm">O.K.</span>
         </Link>
 
         {/* Desktop Links */}
@@ -47,10 +47,10 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm transition-colors hover:text-blue-400 ${
-                  pathname === link.href
-                    ? "text-blue-400 font-medium"
-                    : "text-gray-400"
+                className={`font-mono text-xs tracking-widest uppercase transition-colors hover:text-[#a39f97] ${
+                  pathname === link.href && link.href === "/blog"
+                    ? "text-[#111111] font-bold"
+                    : "text-[#111111]"
                 }`}
               >
                 {link.label}
@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="mailto:olamilekankilani03@gmail.com"
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-medium rounded-lg transition-colors"
+            className="px-4 py-2 bg-[#111111] text-[#F9F6F0] font-mono text-xs tracking-widest uppercase border border-[#111111] transition-transform hover:-translate-y-1 brutalist-shadow"
           >
             Hire Me
           </a>
@@ -71,7 +71,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-400 hover:text-white transition-colors"
+          className="md:hidden text-[#111111] hover:text-[#a39f97] transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -81,17 +81,17 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f0f0f] border-t border-white/5 px-6 py-4">
-          <ul className="flex flex-col gap-4">
+        <div className="md:hidden bg-[#F9F6F0] border-t border-b brutalist-border px-6 py-4">
+          <ul className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm transition-colors hover:text-blue-400 block py-1 ${
-                    pathname === link.href
-                      ? "text-blue-400 font-medium"
-                      : "text-gray-400"
+                  className={`font-mono text-xs tracking-widest uppercase block ${
+                    pathname === link.href && link.href === "/blog"
+                      ? "text-[#111111] font-bold"
+                      : "text-[#111111]"
                   }`}
                 >
                   {link.label}
@@ -101,7 +101,7 @@ export default function Navbar() {
             <li>
               <a
                 href="mailto:olamilekankilani03@gmail.com"
-                className="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-medium rounded-lg transition-colors mt-2"
+                className="inline-block px-4 py-2 bg-[#111111] text-[#F9F6F0] font-mono text-xs tracking-widest uppercase border border-[#111111] transition-transform hover:-translate-y-1 brutalist-shadow mt-4"
               >
                 Hire Me
               </a>

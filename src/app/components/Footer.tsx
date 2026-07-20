@@ -26,16 +26,15 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10 mt-20">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="border-t border-[#111111] py-12 bg-[#F9F6F0]">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
         <div>
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Olamilekan Kilani. Built with Next.js &
-            Tailwind.
+          <p className="text-[#111111] text-xs font-mono uppercase tracking-widest">
+            © {new Date().getFullYear()} Olamilekan Kilani.
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           {socials.map((social) => (
             <a
               key={social.label}
@@ -43,21 +42,26 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="text-gray-500 hover:text-blue-400 transition-colors"
+              className="text-[#111111] hover:text-[#a39f97] transition-colors"
             >
               {social.icon}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-6">
-          {["Projects", "Skills", "Blog", "Contact"].map((item) => (
+        <div className="flex items-center gap-8">
+          {[
+            { label: "Projects", href: "/#projects" },
+            { label: "Skills", href: "/#skills" },
+            { label: "Blog", href: "/blog" },
+            { label: "Contact", href: "/#contact" },
+          ].map((item) => (
             <Link
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              className="text-gray-500 hover:text-white text-sm transition-colors"
+              key={item.label}
+              href={item.href}
+              className="text-[#111111] hover:text-[#a39f97] text-xs font-mono uppercase tracking-widest transition-colors"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </div>
