@@ -42,7 +42,8 @@ const projects = [
   },
   {
     title: "Dev Tracker",
-    description: "It is a platform for developers for logging your daily coding progress, achievements, and tracking your learning journey.",
+    description:
+      "It is a platform for developers for logging your daily coding progress, achievements, and tracking your learning journey.",
     tags: ["Next.js", "NeonDB", "Clerk", "TailwindCSS", "React"],
     live: "https://devtrackr-alpha.vercel.app/",
     github: "https://github.com/kilan080/devtrackr",
@@ -53,7 +54,8 @@ const projects = [
   },
   {
     title: "TobiBro Admin",
-    description: "an admin dashboard for TobiBro to manage its students and also tutor for the development and progress of students",
+    description:
+      "an admin dashboard for TobiBro to manage its students and also tutor for the development and progress of students",
     tags: ["Next.js", "TypeScript", "Material UI"],
     live: "#",
     github: "https://github.com/kilan080",
@@ -64,7 +66,8 @@ const projects = [
   },
   {
     title: "AI travel planner",
-    description: "An AI travel planner to help plan your travels, give tips about how to spend and also locations of where you can visit with an integrated chatbot. Built with Next.js and Firebase.",
+    description:
+      "An AI travel planner to help plan your travels, give tips about how to spend and also locations of where you can visit with an integrated chatbot. Built with Next.js and Firebase.",
     tags: ["Next.js", "Firebase", "TypeScript", "Tailwindcss"],
     live: " https://ai-travel-planner-kol.vercel.app",
     github: "https://github.com/kilan080/ai-travel-planner",
@@ -72,7 +75,31 @@ const projects = [
     featured: true,
     color: "from-blue-500/20 to-cyan-500/20",
     border: "border-blue-500/20",
-  }
+  },
+  {
+    title: "Grade Calculator",
+    description:
+      "An npm package that calculates grade of students based on their scores",
+    tags: ["TypeScript", "npm", "git/CLI"],
+    live: "https://www.npmjs.com/package/@kilan080/grade-calculator",
+    github: "https://github.com/kilan080/grade-calculator",
+    status: "live",
+    featured: true,
+    color: "from-purple-500/20 to-pink-500/20",
+    border: "border-green-500/20",
+  },
+  {
+    title: "A School Result Management Portal",
+    description:
+      "A school result management portal for schools to manage their students and also generate reports.",
+    tags: ["Next.js", "TypeScript", "TailwindCss", "firebase"],
+    live: "https://portal-two-xi-52.vercel.app",
+    github: "https://github.com/kilan080",
+    status: "live",
+    featured: true,
+    color: "from-green-500/20 to-emerald-500/20",
+    border: "border-green-500/20",
+  },
 ];
 
 export default function Projects() {
