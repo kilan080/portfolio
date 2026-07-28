@@ -1,43 +1,52 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NextTopLoader from "nextjs-toploader";
 
-const geist = Geist({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-serif",
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Olamilekan Kilani | Frontend Developer",
+    default: "Olamilekan Kilani — Portfolio",
     template: "%s | Olamilekan Kilani",
   },
   description:
-    "Frontend developer building responsive, user-friendly applications with modern technologies.",
+    "Portfolio of Olamilekan Kilani — Frontend Web Developer building high-performance, elegant interactive web experiences.",
   keywords: [
-    "frontend developer",
-    "fullstack developer",
+    "Olamilekan Kilani",
+    "Frontend Developer",
+    "Web Developer",
     "Next.js",
     "React",
-    "Nigeria",
+    "Portfolio",
+    "Software Engineer",
   ],
   metadataBase: new URL("https://kilani-portfolio.vercel.app"),
   icons: {
     icon: "/devkilan-logo.svg",
     shortcut: "/devkilan-logo.svg",
-    apple: "/devkilan-logo.svg",
   },
   openGraph: {
-    title: "Olamilekan Kilani | Frontend Developer",
+    title: "Olamilekan Kilani — Portfolio",
     description:
-      "Frontend developer building responsive, user-friendly applications.",
+      "Frontend Web Developer focusing on high-performance minimalist web experiences.",
     type: "website",
-  },
-  verification: {
-    google: "quYV9S-Iy_XPqIDI9oPU1__mIWNx0QLFB_ewcexg-lw",
   },
 };
 
@@ -47,16 +56,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geist.variable}>
-      <body className="bg-[#F9F6F0] text-[#111111] antialiased selection:bg-[#111111] selection:text-[#F9F6F0]">
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="bg-[#FAF8F5] text-[#1C1C1A] antialiased min-h-screen flex flex-col justify-between selection:bg-[#1C1C1A] selection:text-[#FAF8F5]">
         <NextTopLoader
-          color="#3b82f6"
-          height={3}
+          color="#1C1C1A"
+          height={2}
           showSpinner={false}
-          shadow="0 0 10px #3b82f6"
+          shadow="none"
         />
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-1 w-full">{children}</main>
         <Footer />
       </body>
     </html>

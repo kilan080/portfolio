@@ -1,25 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiMenu, FiX, FiCode } from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Skills", href: "/#skills" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { name: "Landing", path: "/" },
+  { name: "Skills", path: "/skills" },
+  { name: "Blog", path: "/blog" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -28,85 +32,94 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#F9F6F0]/90 backdrop-blur-md border-b brutalist-border"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E6E3DC] py-4"
+          : "bg-transparent py-6"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 bg-[#111111] flex items-center justify-center transition-transform group-hover:-translate-y-1 brutalist-border brutalist-shadow">
-            <FiCode className="text-[#F9F6F0] text-sm" />
+      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+        {/* Brand */}
+        <Link href="/" className="group flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full border border-[#E6E3DC] flex items-center justify-center font-serif-heading font-bold text-sm group-hover:bg-[#1C1C1A] group-hover:border-[#1C1C1A] group-hover:text-[#FAF8F5] transition-colors">
+            OK
           </div>
-          <span className="font-black text-[#111111] tracking-tighter uppercase text-sm">O.K.</span>
+          <div className="flex flex-col">
+            <span className="font-serif-heading font-medium text-lg tracking-tight leading-tight text-[#1C1C1A]">
+              Olamilekan Kilani
+            </span>
+            <span className="text-[10px] font-mono-accent text-[#8E8B82] uppercase tracking-widest">
+              Frontend Engineer
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const isActive =
+              link.path === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.path);
+
+            return (
               <Link
-                href={link.href}
-                className={`font-mono text-xs tracking-widest uppercase transition-colors hover:text-[#a39f97] ${
-                  pathname === link.href && link.href === "/blog"
-                    ? "text-[#111111] font-bold"
-                    : "text-[#111111]"
+                key={link.path}
+                href={link.path}
+                className={`text-xs font-mono-accent uppercase tracking-widest transition-colors relative py-1 ${
+                  isActive
+                    ? "text-[#1C1C1A] font-semibold"
+                    : "text-[#8E8B82] hover:text-[#1C1C1A]"
                 }`}
               >
-                {link.label}
+                {link.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#8E8B82]" />
+                )}
               </Link>
-            </li>
-          ))}
-        </ul>
+            );
+          })}
+        </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="mailto:olamilekankilani03@gmail.com"
-            className="px-4 py-2 bg-[#111111] text-[#F9F6F0] font-mono text-xs tracking-widest uppercase border border-[#111111] transition-transform hover:-translate-y-1 brutalist-shadow"
+        {/* Availability Badge & Mobile Toggle */}
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 border border-[#E6E3DC] bg-[#FAF8F5] rounded-full text-[11px] font-mono-accent text-[#383632]">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+            <span>Available for hire</span>
+          </div>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-[#1C1C1A] hover:text-[#8E8B82]"
+            aria-label="Toggle Navigation"
           >
-            Hire Me
-          </a>
+            {mobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-[#111111] hover:text-[#a39f97] transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-        </button>
-      </nav>
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#FAF8F5] border-b border-[#E6E3DC] px-6 py-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-200">
+          {navLinks.map((link) => {
+            const isActive =
+              link.path === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.path);
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-[#F9F6F0] border-t border-b brutalist-border px-6 py-4">
-          <ul className="flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`font-mono text-xs tracking-widest uppercase block ${
-                    pathname === link.href && link.href === "/blog"
-                      ? "text-[#111111] font-bold"
-                      : "text-[#111111]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a
-                href="mailto:olamilekankilani03@gmail.com"
-                className="inline-block px-4 py-2 bg-[#111111] text-[#F9F6F0] font-mono text-xs tracking-widest uppercase border border-[#111111] transition-transform hover:-translate-y-1 brutalist-shadow mt-4"
+            return (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-sm font-mono-accent uppercase tracking-widest py-2 ${
+                  isActive
+                    ? "text-[#1C1C1A] font-bold"
+                    : "text-[#8E8B82]"
+                }`}
               >
-                Hire Me
-              </a>
-            </li>
-          </ul>
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
       )}
     </header>
