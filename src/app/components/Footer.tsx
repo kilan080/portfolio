@@ -1,69 +1,71 @@
-import Link from "next/link";
-import { FiGithub, FiTwitter, FiLinkedin, FiMail } from "react-icons/fi";
+"use client";
+
+import { FiGithub, FiTwitter, FiLinkedin, FiArrowUp } from "react-icons/fi";
 
 const socials = [
   {
-    icon: <FiGithub size={18} />,
-    href: "https://github.com/kilan080",
     label: "GitHub",
+    href: "https://github.com/kilan080",
+    icon: <FiGithub size={16} />,
   },
   {
-    icon: <FiTwitter size={18} />,
-    href: "https://twitter.com/olamie03",
     label: "Twitter",
+    href: "https://twitter.com/olamie03",
+    icon: <FiTwitter size={16} />,
   },
   {
-    icon: <FiLinkedin size={18} />,
-    href: "https://www.linkedin.com/in/olamilekan-kilani-1197aa313/",
     label: "LinkedIn",
-  },
-  {
-    icon: <FiMail size={18} />,
-    href: "mailto:olamilekankilani03@gmail.com",
-    label: "Email",
+    href: "https://www.linkedin.com/in/olamilekan-kilani-1197aa313/",
+    icon: <FiLinkedin size={16} />,
   },
 ];
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-[#111111] py-12 bg-[#F9F6F0]">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div>
-          <p className="text-[#111111] text-xs font-mono uppercase tracking-widest">
-            © {new Date().getFullYear()} Olamilekan Kilani.
+    <footer className="w-full border-t border-[#E6E3DC] bg-[#FAF8F5] pt-16 pb-12 mt-20">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8">
+          <div>
+            <h3 className="font-serif-heading text-2xl text-[#1C1C1A] mb-2">
+              Let&apos;s build something exceptional together.
+            </h3>
+            <p className="text-xs font-mono-accent text-[#8E8B82] uppercase tracking-wider">
+              Available for full-time roles & high-impact projects.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono-accent text-[#8E8B82] hover:text-[#1C1C1A] transition-colors uppercase tracking-wider"
+              >
+                {social.icon}
+                <span>{social.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs font-mono-accent text-[#8E8B82]">
+          <p>
+            © {new Date().getFullYear()} Olamilekan Kilani. All rights reserved.
           </p>
-        </div>
 
-        <div className="flex items-center gap-6">
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="text-[#111111] hover:text-[#a39f97] transition-colors"
-            >
-              {social.icon}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-8">
-          {[
-            { label: "Projects", href: "/#projects" },
-            { label: "Skills", href: "/#skills" },
-            { label: "Blog", href: "/blog" },
-            { label: "Contact", href: "/#contact" },
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-[#111111] hover:text-[#a39f97] text-xs font-mono uppercase tracking-widest transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 text-[#8E8B82] hover:text-[#1C1C1A] transition-colors uppercase tracking-wider cursor-pointer"
+          >
+            <span>Back to top</span>
+            <FiArrowUp size={14} />
+          </button>
         </div>
       </div>
     </footer>
