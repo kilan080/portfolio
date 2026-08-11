@@ -3,6 +3,7 @@ import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ContactInfo from "./components/ContactInfo";
 import NextTopLoader from "nextjs-toploader";
 
 const newsreader = Newsreader({
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
+        <ContactInfo />
       </body>
     </html>
   );
