@@ -10,6 +10,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Experience", path: "/experience" },
   { name: "Contact", path: "/contact" },
+  { name: "Blog", path: "/blog" },
 ];
 
 export default function Navbar() {
@@ -63,9 +64,7 @@ export default function Navbar() {
                 key={link.path}
                 href={link.path}
                 className={`text-[11px] font-mono uppercase tracking-widest transition-colors relative py-1 ${
-                  isActive
-                    ? "text-accent"
-                    : "text-muted hover:text-foreground"
+                  isActive ? "text-accent" : "text-muted hover:text-foreground"
                 }`}
               >
                 {link.name}
