@@ -8,8 +8,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist)', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-sans)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        serif: ['var(--font-serif)', 'serif'],
+      },
+      colors: {
+        background: 'var(--bg-color)',
+        foreground: 'var(--text-main)',
+        muted: 'var(--text-muted)',
+        subtle: 'var(--text-subtle)',
+        border: 'var(--border-color)',
+        accent: 'var(--accent-color)',
       }
     },
   },

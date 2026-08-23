@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #FAF8F5;
-  --text-main: #1C1C1A;
-  --text-muted: #8E8B82;
-  --text-subtle: #A29E96;
-  --border-color: #E6E3DC;
-  --border-dark: #1C1C1A;
-  --accent-color: #383632;
+  --bg-color: #0B0C0E;
+  --text-main: #F2F1ED;
+  --text-muted: #6B6F76;
+  --text-subtle: #3A3C42;
+  --border-color: #222429;
+  --accent-color: #34C77B;
 }
 
 * {
@@ -28,27 +27,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography styles matching reference UI */
-.font-serif-heading {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-
-.font-mono-accent {
-  font-family: var(--font-mono), monospace;
-  letter-spacing: 0.05em;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,26 +43,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8D4CC;
-  border-radius: 2px;
+  background: var(--text-subtle);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B5B0A6;
+  background: var(--text-muted);
 }
 
 /* Custom Selection */
 ::selection {
-  background-color: #1C1C1A;
-  color: #FAF8F5;
+  background-color: var(--accent-color);
+  color: #0B0C0E;
 }
 
-/* Editorial Dividers */
-.border-editorial {
-  border-color: var(--border-color);
+/* Base Utility Classes for Typography & Editorial Layout */
+.text-balance {
+  text-wrap: balance;
 }
 
-/* Transition Utilities */
-.transition-editorial {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Removing any generic card/box UI styles if they were present */

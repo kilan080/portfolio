@@ -61,15 +61,16 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-[#FAF8F5] text-[#1C1C1A] antialiased min-h-screen flex flex-col justify-between selection:bg-[#1C1C1A] selection:text-[#FAF8F5]">
+      <body className="bg-background text-foreground antialiased min-h-screen flex flex-col justify-between overflow-x-hidden">
         <NextTopLoader
-          color="#1C1C1A"
+          color="#34C77B"
           height={2}
           showSpinner={false}
           shadow="none"
         />
         <Navbar />
-        <main className="flex-1 w-full">{children}</main>
+        <main className="flex-1 w-full flex flex-col">{children}</main>
+        {/* We might remove Footer or redesign it later, but keeping it for now */}
         <Footer />
         <ContactInfo />
       </body>
