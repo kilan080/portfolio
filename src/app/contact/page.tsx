@@ -177,7 +177,7 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="form-element group inline-flex items-center justify-between gap-4 border border-border px-6 py-4 bg-background hover:bg-foreground hover:text-background transition-colors w-full mt-4"
+              className="form-element rounded-2xl group inline-flex items-center justify-between gap-4 border border-border px-6 py-4 bg-background hover:bg-accent hover:text-background transition-colors w-full mt-4"
             >
               <span className="text-xs font-mono uppercase tracking-widest group-hover:font-semibold">
                 Send Message
