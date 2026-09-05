@@ -49,7 +49,7 @@ export default function Navbar() {
               Olamilekan Kilani
             </span>
             <span className="text-[10px] font-mono text-muted uppercase tracking-widest mt-1">
-              Developer
+              Software Engineer
             </span>
           </div>
         </Link>

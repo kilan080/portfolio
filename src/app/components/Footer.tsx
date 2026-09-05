@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-border bg-background pt-16 pb-12 mt-20">
+    <footer className="w-full border-t rounded-3xl border-border bg-background pt-16 pb-12 mt-20">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8">
           <div>
