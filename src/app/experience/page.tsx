@@ -14,7 +14,7 @@ const experiences = [
   },
   {
     year: "2025 — 2026",
-    role: "Frontend developer Web design tutor",
+    role: "Frontend developer, Web design tutor",
     company: "Topibro Technologies, Lagos",
     description:
       "Architected and deployed responsive and user friendly web applications for various clients. Re-built the comapny's web application and customer support systems to be more user friendly, and also help in training students and working class people on the use of the web application and other digital tools.",
