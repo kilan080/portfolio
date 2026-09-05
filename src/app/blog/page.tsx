@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { FiClock, FiTag, FiArrowRight } from "react-icons/fi";
+import { FiClock, FiArrowRight } from "react-icons/fi";
 import gsap from "gsap";
 import { posts } from "../data/postsData";
 
@@ -21,7 +21,13 @@ export default function BlogPage() {
         gsap.fromTo(
           headerRef.current.children,
           { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+          },
         );
       }
 
@@ -30,7 +36,14 @@ export default function BlogPage() {
         gsap.fromTo(
           publishedRef.current.children,
           { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power2.out", delay: 0.2 }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out",
+            delay: 0.2,
+          },
         );
       }
 
@@ -39,7 +52,14 @@ export default function BlogPage() {
         gsap.fromTo(
           upcomingRef.current.children,
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out", delay: 0.4 }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            delay: 0.4,
+          },
         );
       }
     });
@@ -58,7 +78,8 @@ export default function BlogPage() {
           Recent Notes & Articles
         </h1>
         <p className="text-base text-[#8E8B82] max-w-2xl font-light leading-relaxed">
-          I write about frontend architecture, Next.js optimization, state management, design systems, and lessons from building web products.
+          I write about frontend architecture, Next.js optimization, state
+          management, design systems, and lessons from building web products.
         </p>
       </div>
 
@@ -73,7 +94,10 @@ export default function BlogPage() {
           </span>
         </div>
 
-        <div ref={publishedRef} className="flex flex-col divide-y divide-[#E6E3DC]">
+        <div
+          ref={publishedRef}
+          className="flex flex-col divide-y divide-[#E6E3DC]"
+        >
           {publishedPosts.map((post) => (
             <Link
               key={post.slug}
@@ -122,7 +146,10 @@ export default function BlogPage() {
           </span>
         </div>
 
-        <div ref={upcomingRef} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div
+          ref={upcomingRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
           {upcomingPosts.map((post) => (
             <div
               key={post.slug}
