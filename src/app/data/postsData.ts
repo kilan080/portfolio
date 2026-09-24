@@ -126,6 +126,50 @@ API integration, debounced search inputs, and dynamic video modal players form t
 - Dynamic genre filtering and trending carousels
 - Video modal popup embedding YouTube trailers via TMDB video endpoints
 `,
+},
+{
+    slug: "building-seat-booking-out-of-my-comfort-zone",
+    title: "Building a project out of my comfort zone: Seat Booking",
+    excerpt:
+      "Ditching Firebase for a real Postgres database, database-level concurrency locking, WebSockets, and JWT auth, then deploying it all with Docker.",
+    date: "September, 2026",
+    readTime: "10 min read",
+    tag: "Projects",
+    comingSoon: false,
+    content: `
+# Building Seat Booking From Scratch
+
+Most of my recent projects leaned on Firebase, fast to ship, but it does a lot of the hard thinking for you. No real schema design, no real concurrency handling. So for this one, I deliberately took that away and built a live event seat-booking system: the kind of app where two people can try to grab the same seat at the exact same moment, and the system has to get that right.
+
+## The stack
+
+- **Frontend:** Next.js, TypeScript, Tailwind, React Query for server state, Zustand for auth state
+- **Backend:** Node.js, Express, TypeScript
+- **Database:** PostgreSQL, running in Docker
+- **Real-time:** WebSockets (\`ws\`)
+- **Auth:** bcrypt + JWT, no Firebase Auth
+- **Deployment:** Docker, Railway (backend + database), Vercel (frontend)
+
+## The core problem: double-booking
+
+The hardest part of any booking system is what happens when two people click the same seat at the same instant. I solved this with a Postgres transaction using \`SELECT ... FOR UPDATE\`, which locks a seat row for the duration of the request, so if two holds race for the same seat, Postgres serializes them: one succeeds, the other gets a clean rejection instead of a corrupted double-booking.
+
+I didn't just trust that it worked. I wrote a script that fires two hold requests at the same seat in the same instant and confirmed, under real concurrent load, that exactly one wins.
+
+## Making it live
+
+Holding a seat means nothing if other viewers don't see it happen. I added WebSocket rooms scoped per event, so a hold, confirm, or auto-release broadcasts instantly to everyone watching that event — no polling, no refresh. A synced countdown shows exactly when an abandoned hold will expire, driven by a background job that releases unconfirmed holds automatically.
+
+## Real authentication
+
+No Firebase Auth here either. Passwords are hashed with bcrypt, sessions are handled with signed JWTs, and Express middleware verifies every protected request. This closed a real gap along the way — early on, hold/confirm endpoints trusted whatever user ID the client sent, meaning anyone could impersonate anyone. Moving identity into a verified token fixed that properly.
+
+## Shipping it
+
+I containerized the backend with a Dockerfile and Docker Compose, then deployed the backend and Postgres on Railway and the frontend on Vercel, with HTTPS and secure WebSockets handled automatically at the edge.
+
+The biggest lessons weren't in the features — they were in the debugging: silent mismatches between what the backend broadcast and what the frontend listened for, stale WebSocket connections after a server restart, and one real scare where a secret briefly ended up in a public commit before I caught and rotated it. Every one of those taught me more than the working code did.
+`,
   },
   {
     slug: "swr-vs-useeffect",

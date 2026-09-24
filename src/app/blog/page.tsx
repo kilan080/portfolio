@@ -11,7 +11,7 @@ export default function BlogPage() {
 
   const publishedPosts = posts.filter((p) => !p.comingSoon);
   const featuredPost = publishedPosts[0];
-  const remainingPosts = publishedPosts.slice(1, 4);
+  const remainingPosts = publishedPosts.slice(1, 5);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
