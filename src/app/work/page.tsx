@@ -66,6 +66,23 @@ const selectedWorks = [
     live: "https://www.npmjs.com/package/@kilan080/grade-calculator",
     github: "https://github.com/kilan080/grade-calculator",
   },
+  {
+    index: "07",
+    year: "2026",
+    title: "Seat Booking",
+    description:
+      "Seat Booking is a full-stack web application designed for seamless event seat reservations. It features an intuitive interface for discovering events and selecting seats, underpinned by a robust backend that ensures real-time availability and prevents double bookings.",
+    tags: [
+      "Next.js",
+      "PostgreSQL",
+      "Express",
+      "TypeScript",
+      "Tailwind",
+      "Docker",
+    ],
+    live: "https://seat-booking-olive.vercel.app/",
+    github: "https://github.com/kilan080/seat-booking",
+  },
 ];
 
 export default function WorkPage() {
