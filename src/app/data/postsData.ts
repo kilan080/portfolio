@@ -126,8 +126,8 @@ API integration, debounced search inputs, and dynamic video modal players form t
 - Dynamic genre filtering and trending carousels
 - Video modal popup embedding YouTube trailers via TMDB video endpoints
 `,
-},
-{
+  },
+  {
     slug: "building-seat-booking-out-of-my-comfort-zone",
     title: "Building a project out of my comfort zone: Seat Booking",
     excerpt:

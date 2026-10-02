@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8">
           <div>
             <h3 className="font-sans font-semibold text-2xl text-foreground mb-2">
-              Let&apos;s build something exceptional together.
+              Let&apos;s build something exceptional together
             </h3>
             <p className="text-xs font-mono text-muted uppercase tracking-wider">
               Available for full-time roles & high-impact projects.
@@ -55,9 +55,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs font-mono text-muted border-border/50">
-          <p>
-            © {new Date().getFullYear()} Olamilekan Kilani. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Dev Kilani. All rights reserved.</p>
 
           <button
             onClick={scrollToTop}
