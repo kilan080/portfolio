@@ -16,6 +16,10 @@ const skills = [
   "MongoDB",
   "Firebase",
   "Git / GitHub",
+  "CI/CD",
+  "Docker",
+  "PostgreSQL",
+  "GSAP",
 ];
 
 export default function AboutPage() {
