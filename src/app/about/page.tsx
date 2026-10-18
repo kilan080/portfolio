@@ -138,7 +138,7 @@ export default function AboutPage() {
         <div className="lg:col-span-5 pt-8 lg:pt-0">
           <div className="about-fade-in mb-8">
             <span className="text-xs font-mono text-accent uppercase tracking-widest block">
-              Core Technologies
+              Core Technologies.
             </span>
           </div>
 
