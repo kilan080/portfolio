@@ -83,6 +83,16 @@ const selectedWorks = [
     live: "https://seat-booking-olive.vercel.app/",
     github: "https://github.com/kilan080/seat-booking",
   },
+  {
+    index: "08",
+    year: "2026",
+    title: "Decency School",
+    description:
+      "Decency International School is a private school located in Meiran, Lagos State, Nigeria. It provides quality education to students from primary to secondary school level.",
+    tags: ["Next.js", "CI/CD", "TypeScript", "Tailwind", "Vercel", "Namecheap"],
+    live: "https://royaldecencyschool.com",
+    github: "https://github.com/decencySchool/School-Website",
+  },
 ];
 
 export default function WorkPage() {
