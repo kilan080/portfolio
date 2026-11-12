@@ -93,6 +93,15 @@ const selectedWorks = [
     live: "https://royaldecencyschool.com",
     github: "https://github.com/decencySchool/School-Website",
   },
+  {
+    index: "09",
+    year: "2026",
+    title: "stockflow",
+    description: "incoming",
+    tags: ["Typescript", "NestJs", "vites"],
+    live: "not yet",
+    github: "https://github.com/kilan080/stockflow",
+  },
 ];
 
 export default function WorkPage() {
